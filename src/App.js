@@ -125,7 +125,7 @@ export default function Portfolio() {
               <Github size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/elbaraa-radwan/"
+              href="https://www.linkedin.com/in/elbaraa-s-radwan/"
               target="_blank"
               rel="noreferrer"
               className="bg-blue-600/90 hover:bg-blue-500 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-blue-500/20 hover:scale-110"
@@ -151,9 +151,14 @@ export default function Portfolio() {
           >
             <a
               href="#about"
-              className="text-blue-300 hover:text-blue-100 transition-colors"
+              className="text-blue-300 hover:text-blue-100 transition-colors flex flex-col items-center"
             >
-              <ChevronDown size={32} />
+              <span className="text-sm mb-2 text-blue-300 opacity-80">
+                Scroll Down
+              </span>
+              <div className="w-8 h-12 border-2 border-blue-300 rounded-full flex justify-center p-1 relative">
+                <div className="w-1.5 h-3 bg-blue-300 rounded-full animate-bounce-gentle mt-1"></div>
+              </div>
             </a>
           </div>
         </div>
@@ -193,21 +198,31 @@ export default function Portfolio() {
                 <span className="font-semibold text-blue-700">
                   Back-End Web Developer
                 </span>{" "}
-                with a strong foundation in Node.js, NestJS, and ExpressJS. I specialize in
-                building secure, scalable, and maintainable server-side applications and APIs.
+                with a strong foundation in Node.js, NestJS, and ExpressJS. I
+                specialize in building secure, scalable, and maintainable
+                server-side applications and APIs.
               </p>
               <p className="text-lg leading-relaxed text-slate-700 mb-6">
-                My technical toolkit includes PostgreSQL, MongoDB, Prisma, TypeORM, and Redis,
-                along with deep experience in Dockerized environments and integration of tools like
-                Cloudinary, FFmpeg, and RabbitMQ. I place a strong emphasis on{" "}
-                <span className="font-semibold text-blue-700">code quality</span>,{" "}
-                <span className="font-semibold text-blue-700">testing</span> (with Jest and Pactum),
-                and <span className="font-semibold text-blue-700">clean architecture</span>.
+                My technical toolkit includes PostgreSQL, MongoDB, Prisma,
+                TypeORM, and Redis, along with deep experience in Dockerized
+                environments and integration of tools like Cloudinary, FFmpeg,
+                and RabbitMQ. I place a strong emphasis on{" "}
+                <span className="font-semibold text-blue-700">
+                  code quality
+                </span>
+                , <span className="font-semibold text-blue-700">testing</span>{" "}
+                (with Jest and Pactum), and{" "}
+                <span className="font-semibold text-blue-700">
+                  clean architecture
+                </span>
+                .
               </p>
               <p className="text-lg leading-relaxed text-slate-700">
-                Whether freelancing or collaborating on team projects, I enjoy solving real-world problems
-                through efficient backend systems, clean code practices, and continuous learning.
-                My goal is to always deliver back-end solutions that are robust, testable, and production-ready.
+                Whether freelancing or collaborating on team projects, I enjoy
+                solving real-world problems through efficient backend systems,
+                clean code practices, and continuous learning. My goal is to
+                always deliver back-end solutions that are robust, testable, and
+                production-ready.
               </p>
 
               <div className="mt-8 flex gap-4">
@@ -747,9 +762,54 @@ export default function Portfolio() {
       {/* Contact */}
       <section
         id="contact"
-        className="py-20 px-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white"
+        className="py-20 px-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white relative overflow-hidden"
       >
-        <div className="max-w-5xl mx-auto">
+        {/* Animated particles background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Floating particles */}
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={`particle-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: `${Math.random() * 10 + 5}px`,
+                height: `${Math.random() * 10 + 5}px`,
+                background: `rgba(${Math.random() * 100 + 100}, ${
+                  Math.random() * 100 + 150
+                }, 255, ${Math.random() * 0.2 + 0.1})`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animation: `float-particle ${
+                  Math.random() * 5 + 10
+                }s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+
+          {/* Connection lines for network effect */}
+          <svg className="absolute inset-0 w-full h-full">
+            {[...Array(8)].map((_, i) => (
+              <line
+                key={`line-${i}`}
+                x1={`${Math.random() * 100}%`}
+                y1={`${Math.random() * 100}%`}
+                x2={`${Math.random() * 100}%`}
+                y2={`${Math.random() * 100}%`}
+                stroke="rgba(59, 130, 246, 0.15)"
+                strokeWidth="1"
+                style={{
+                  animation: `connect-line-animation ${
+                    Math.random() * 10 + 15
+                  }s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </svg>
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <div
             className={`text-center mb-16 ${getAnimationClass(
               "contact",
@@ -768,19 +828,27 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Email */}
             <div
-              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center ${getAnimationClass(
+              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center relative overflow-hidden group ${getAnimationClass(
                 "contact",
                 "animate-slide-up"
               )}`}
               style={{ transitionDelay: "0.1s" }}
             >
-              <div className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+
+              <div
+                className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300"
+                style={{ animation: "pulse-glow 3s infinite" }}
+              >
                 <Mail size={24} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-200">Email</h3>
+              <h3 className="text-xl font-bold mb-2 text-blue-200 relative z-10">
+                Email
+              </h3>
               <a
                 href="mailto:elbaraa.s.radwan@gmail.com"
-                className="text-white hover:text-blue-300 transition-colors break-all"
+                className="text-white hover:text-blue-300 transition-colors break-all relative z-10 inline-block group-hover:scale-105 transition-transform duration-300"
               >
                 elbaraa.s.radwan@gmail.com
               </a>
@@ -788,43 +856,65 @@ export default function Portfolio() {
 
             {/* LinkedIn */}
             <div
-              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center ${getAnimationClass(
+              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center relative overflow-hidden group ${getAnimationClass(
                 "contact",
                 "animate-slide-up"
               )}`}
               style={{ transitionDelay: "0.2s" }}
             >
-              <div className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+
+              <div
+                className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300"
+                style={{
+                  animation: "pulse-glow 3s infinite",
+                  animationDelay: "0.5s",
+                }}
+              >
                 <Linkedin size={24} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-200">LinkedIn</h3>
+              <h3 className="text-xl font-bold mb-2 text-blue-200 relative z-10">
+                LinkedIn
+              </h3>
               <a
-                href="https://www.linkedin.com/in/elbaraa-radwan/"
+                href="https://www.linkedin.com/in/elbaraa-s-radwan/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-white hover:text-blue-300 transition-colors"
+                className="text-white hover:text-blue-300 transition-colors relative z-10 inline-block group-hover:scale-105 transition-transform duration-300"
               >
-                /in/elbaraa-radwan
+                /in/elbaraa-s-radwan
               </a>
             </div>
 
             {/* GitHub */}
             <div
-              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center ${getAnimationClass(
+              className={`bg-slate-700/60 backdrop-blur-sm p-8 rounded-xl text-center relative overflow-hidden group ${getAnimationClass(
                 "contact",
                 "animate-slide-up"
               )}`}
               style={{ transitionDelay: "0.3s" }}
             >
-              <div className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+
+              <div
+                className="w-14 h-14 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300"
+                style={{
+                  animation: "pulse-glow 3s infinite",
+                  animationDelay: "1s",
+                }}
+              >
                 <Github size={24} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-200">GitHub</h3>
+              <h3 className="text-xl font-bold mb-2 text-blue-200 relative z-10">
+                GitHub
+              </h3>
               <a
                 href="https://github.com/ElBaraaRadwan"
                 target="_blank"
                 rel="noreferrer"
-                className="text-white hover:text-blue-300 transition-colors"
+                className="text-white hover:text-blue-300 transition-colors relative z-10 inline-block group-hover:scale-105 transition-transform duration-300"
               >
                 @ElBaraaRadwan
               </a>
@@ -832,16 +922,39 @@ export default function Portfolio() {
           </div>
 
           <div
-            className={`mt-16 text-center ${getAnimationClass(
+            className={`mt-16 text-center relative ${getAnimationClass(
               "contact",
               "animate-fade-in"
             )}`}
             style={{ transitionDelay: "0.6s" }}
           >
-            <p className="text-blue-200 mb-4">
+            <p className="text-blue-200 mb-4 relative z-10">
               Let's build something amazing together.
             </p>
-            <div className="h-1 w-12 bg-blue-500 mx-auto rounded-full opacity-50"></div>
+
+            {/* Animated connecting dots */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-full h-12 overflow-hidden opacity-30 pointer-events-none">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`dot-${i}`}
+                  className="absolute w-1.5 h-1.5 rounded-full bg-blue-400"
+                  style={{
+                    left: `${10 + i * 16}%`,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    animation: `float-particle ${
+                      4 + i * 0.5
+                    }s ease-in-out infinite`,
+                    animationDelay: `${i * 0.7}s`,
+                  }}
+                />
+              ))}
+            </div>
+
+            <div
+              className="h-1 w-12 bg-blue-500 mx-auto rounded-full opacity-50 relative z-10"
+              style={{ animation: "pulse-glow 4s infinite" }}
+            ></div>
           </div>
         </div>
       </section>

@@ -404,6 +404,52 @@
   animation: bounce-fast 2s ease-in-out infinite;
 }
 
+/* Contact section animations */
+@keyframes float-particle {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) rotate(5deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-25px) translateX(-5px) rotate(-3deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-10px) translateX(-15px) rotate(3deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes connect-line-animation {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 100%;
+    opacity: 0.7;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
 .animation-delay-2000 {
   animation-delay: 2s;
 }
