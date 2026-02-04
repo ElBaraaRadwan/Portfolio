@@ -13,8 +13,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:optimized": "react-scripts build --mode production --optimize-minify --optimize-images",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": [
@@ -33,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "source-map-explorer": "^2.5.3"
   }
 }
