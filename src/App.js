@@ -871,13 +871,23 @@ export default function App() {
 
               <div className="mt-8 flex gap-4">
                 <a
-                  href="/CV/Elbaraa_Resume.pdf"
-                  download="Elbaraa_Resume.pdf"
+                  href="/CV/Elbaraa_CV.pdf"
+                  download="Elbaraa_CV.pdf"
                   aria-label="Download CV as PDF"
                   className="px-6 py-3 bg-light-about dark:bg-dark-about text-light-text-heading dark:text-dark-text-heading rounded-lg shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2 border-2 border-light-accent-primary dark:border-dark-accent-primary"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
                   </svg>
                   Download CV
                 </a>
